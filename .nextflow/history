@@ -1,2 +1,0 @@
-2023-06-01 16:20:11	10.2s	golden_curie	ERR	a8d0bc88a506f1e0b82fb8515efdea92	ded0d390-a055-4573-98fe-b5548655254e	nextflow run main.nf
-2023-06-01 16:24:46	17.5s	focused_montalcini	OK	a8d0bc88a506f1e0b82fb8515efdea92	6fc1e30b-0081-4e74-b578-f7e3e0a6992b	nextflow run main.nf
