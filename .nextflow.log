@@ -1,0 +1,95 @@
+Jun-01 16:24:44.886 [main] DEBUG nextflow.cli.Launcher - $> nextflow run main.nf
+Jun-01 16:24:44.964 [main] INFO  nextflow.cli.CmdRun - N E X T F L O W  ~  version 23.04.1
+Jun-01 16:24:44.991 [main] DEBUG nextflow.plugin.PluginsFacade - Setting up plugin manager > mode=prod; embedded=false; plugins-dir=/home/gitpod/.nextflow/plugins; core-plugins: nf-amazon@1.16.2,nf-azure@1.0.1,nf-codecommit@0.1.4,nf-console@1.0.5,nf-ga4gh@1.0.5,nf-google@1.7.3,nf-tower@1.5.12,nf-wave@0.8.2
+Jun-01 16:24:45.005 [main] INFO  org.pf4j.DefaultPluginStatusProvider - Enabled plugins: []
+Jun-01 16:24:45.006 [main] INFO  org.pf4j.DefaultPluginStatusProvider - Disabled plugins: []
+Jun-01 16:24:45.010 [main] INFO  org.pf4j.DefaultPluginManager - PF4J version 3.4.1 in 'deployment' mode
+Jun-01 16:24:45.023 [main] INFO  org.pf4j.AbstractPluginManager - No plugins
+Jun-01 16:24:45.054 [main] DEBUG nextflow.config.ConfigBuilder - Found config local: /workspace/gitpod/nf-training/nextflow-course/nextflow.config
+Jun-01 16:24:45.055 [main] DEBUG nextflow.config.ConfigBuilder - Parsing config file: /workspace/gitpod/nf-training/nextflow-course/nextflow.config
+Jun-01 16:24:45.084 [main] DEBUG nextflow.config.ConfigBuilder - Applying config profile: `standard`
+Jun-01 16:24:46.297 [main] DEBUG nextflow.cli.CmdRun - Applied DSL=2 by global default
+Jun-01 16:24:46.371 [main] INFO  nextflow.cli.CmdRun - Launching `main.nf` [focused_montalcini] DSL2 - revision: a8d0bc88a5
+Jun-01 16:24:46.372 [main] DEBUG nextflow.plugin.PluginsFacade - Plugins default=[]
+Jun-01 16:24:46.372 [main] DEBUG nextflow.plugin.PluginsFacade - Plugins resolved requirement=[]
+Jun-01 16:24:46.385 [main] DEBUG nextflow.secret.LocalSecretsProvider - Secrets store: /home/gitpod/.nextflow/secrets/store.json
+Jun-01 16:24:46.392 [main] DEBUG nextflow.secret.SecretsLoader - Discovered secrets providers: [nextflow.secret.LocalSecretsProvider@77774571] - activable => nextflow.secret.LocalSecretsProvider@77774571
+Jun-01 16:24:46.494 [main] DEBUG nextflow.Session - Session UUID: 6fc1e30b-0081-4e74-b578-f7e3e0a6992b
+Jun-01 16:24:46.494 [main] DEBUG nextflow.Session - Run name: focused_montalcini
+Jun-01 16:24:46.495 [main] DEBUG nextflow.Session - Executor pool size: 16
+Jun-01 16:24:46.513 [main] DEBUG nextflow.util.ThreadPoolBuilder - Creating thread pool 'FileTransfer' minSize=10; maxSize=48; workQueue=LinkedBlockingQueue[10000]; allowCoreThreadTimeout=false
+Jun-01 16:24:46.582 [main] DEBUG nextflow.cli.CmdRun - 
+  Version: 23.04.1 build 5866
+  Created: 15-04-2023 06:51 UTC (06:51 GMT)
+  System: Linux 6.1.27-060127-generic
+  Runtime: Groovy 3.0.16 on OpenJDK 64-Bit Server VM 17.0.3-internal+0-adhoc..src
+  Encoding: UTF-8 (UTF-8)
+  Process: 1816@nextflowio-training-e2ho9puu3cz [127.0.0.1]
+  CPUs: 16 - Mem: 62.8 GB (3.5 GB) - Swap: 375 GB (351.4 GB)
+Jun-01 16:24:46.614 [main] DEBUG nextflow.Session - Work-dir: /workspace/gitpod/nf-training/nextflow-course/work [xfs]
+Jun-01 16:24:46.655 [main] DEBUG nextflow.executor.ExecutorFactory - Extension executors providers=[]
+Jun-01 16:24:46.670 [main] DEBUG nextflow.Session - Observer factory: DefaultObserverFactory
+Jun-01 16:24:46.753 [main] DEBUG nextflow.cache.CacheFactory - Using Nextflow cache factory: nextflow.cache.DefaultCacheFactory
+Jun-01 16:24:46.769 [main] DEBUG nextflow.util.CustomThreadPool - Creating default thread pool > poolSize: 17; maxThreads: 1000
+Jun-01 16:24:46.910 [main] DEBUG nextflow.Session - Session start
+Jun-01 16:24:48.364 [main] DEBUG nextflow.script.ScriptRunner - > Launching execution
+Jun-01 16:24:48.391 [main] INFO  nextflow.Nextflow - R N A S E Q - N F   P I P E L I N E
+===================================
+transcriptome: /workspace/gitpod/nf-training/nextflow-course/samples/transcriptome.fa
+reads        : /workspace/gitpod/nf-training/nextflow-course/samples/*_{1,2}.fq
+outdir       : results
+
+Jun-01 16:24:48.680 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Jun-01 16:24:48.681 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Jun-01 16:24:48.689 [main] DEBUG nextflow.executor.Executor - [warm up] executor > local
+Jun-01 16:24:48.695 [main] DEBUG n.processor.LocalPollingMonitor - Creating local task monitor for executor 'local' > cpus=16; memory=62.8 GB; capacity=16; pollInterval=100ms; dumpInterval=5m
+Jun-01 16:24:48.894 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Jun-01 16:24:48.895 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Jun-01 16:24:48.957 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Jun-01 16:24:48.957 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Jun-01 16:24:48.985 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Jun-01 16:24:48.986 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Jun-01 16:24:48.991 [main] DEBUG nextflow.Session - Workflow process names [dsl2]: FASTQC, QUANTIFICATION, MULTIQC, INDEX
+Jun-01 16:24:48.992 [main] DEBUG nextflow.Session - Igniting dataflow network (5)
+Jun-01 16:24:49.054 [PathVisitor-1] DEBUG nextflow.file.PathVisitor - files for syntax: glob; folder: /workspace/gitpod/nf-training/nextflow-course/samples/; pattern: *_{1,2}.fq; options: [checkIfExists:true]
+Jun-01 16:24:49.055 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > INDEX
+Jun-01 16:24:49.056 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > QUANTIFICATION
+Jun-01 16:24:49.057 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > FASTQC
+Jun-01 16:24:49.058 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > MULTIQC
+Jun-01 16:24:49.058 [main] DEBUG nextflow.script.ScriptRunner - > Awaiting termination 
+Jun-01 16:24:49.058 [main] DEBUG nextflow.Session - Session await
+Jun-01 16:24:49.418 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Jun-01 16:24:49.421 [Task submitter] INFO  nextflow.Session - [cd/0b341f] Submitted process > INDEX
+Jun-01 16:24:49.466 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Jun-01 16:24:49.467 [Task submitter] INFO  nextflow.Session - [c1/455de3] Submitted process > FASTQC (FASTQC on lung)
+Jun-01 16:24:49.495 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Jun-01 16:24:49.496 [Task submitter] INFO  nextflow.Session - [4b/eabf0e] Submitted process > FASTQC (FASTQC on liver)
+Jun-01 16:24:49.511 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Jun-01 16:24:49.512 [Task submitter] INFO  nextflow.Session - [39/1e84e0] Submitted process > FASTQC (FASTQC on gut)
+Jun-01 16:24:51.374 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 1; name: INDEX; status: COMPLETED; exit: 0; error: -; workDir: /workspace/gitpod/nf-training/nextflow-course/work/cd/0b341fe047ff2b4193641678bcc1a0]
+Jun-01 16:24:51.415 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Jun-01 16:24:51.415 [Task submitter] INFO  nextflow.Session - [86/c5921d] Submitted process > QUANTIFICATION (Salmon on lung)
+Jun-01 16:24:51.428 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Jun-01 16:24:51.428 [Task submitter] INFO  nextflow.Session - [74/06397f] Submitted process > QUANTIFICATION (Salmon on gut)
+Jun-01 16:24:51.461 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Jun-01 16:24:51.462 [Task submitter] INFO  nextflow.Session - [b7/590486] Submitted process > QUANTIFICATION (Salmon on liver)
+Jun-01 16:24:54.154 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 5; name: QUANTIFICATION (Salmon on gut); status: COMPLETED; exit: 0; error: -; workDir: /workspace/gitpod/nf-training/nextflow-course/work/74/06397fb83e269c94efc2007138f247]
+Jun-01 16:24:54.164 [Task monitor] DEBUG nextflow.util.ThreadPoolBuilder - Creating thread pool 'PublishDir' minSize=10; maxSize=48; workQueue=LinkedBlockingQueue[10000]; allowCoreThreadTimeout=false
+Jun-01 16:24:54.508 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 7; name: QUANTIFICATION (Salmon on lung); status: COMPLETED; exit: 0; error: -; workDir: /workspace/gitpod/nf-training/nextflow-course/work/86/c5921d61ac0558344d87dddfdd68c1]
+Jun-01 16:24:54.761 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 6; name: QUANTIFICATION (Salmon on liver); status: COMPLETED; exit: 0; error: -; workDir: /workspace/gitpod/nf-training/nextflow-course/work/b7/5904868ce110543cf391f1178c9e19]
+Jun-01 16:24:57.564 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 2; name: FASTQC (FASTQC on gut); status: COMPLETED; exit: 0; error: -; workDir: /workspace/gitpod/nf-training/nextflow-course/work/39/1e84e083b043011526cee6512d4839]
+Jun-01 16:24:57.595 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 4; name: FASTQC (FASTQC on lung); status: COMPLETED; exit: 0; error: -; workDir: /workspace/gitpod/nf-training/nextflow-course/work/c1/455de3af10c36642c8306322c2281f]
+Jun-01 16:24:57.671 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 3; name: FASTQC (FASTQC on liver); status: COMPLETED; exit: 0; error: -; workDir: /workspace/gitpod/nf-training/nextflow-course/work/4b/eabf0e93dc242ce5b884c70a87b6c0]
+Jun-01 16:24:57.686 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Jun-01 16:24:57.687 [Task submitter] INFO  nextflow.Session - [08/286fbd] Submitted process > MULTIQC
+Jun-01 16:25:03.321 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 8; name: MULTIQC; status: COMPLETED; exit: 0; error: -; workDir: /workspace/gitpod/nf-training/nextflow-course/work/08/286fbdd7659088f9e10a68efa96ffc]
+Jun-01 16:25:03.324 [main] DEBUG nextflow.Session - Session await > all processes finished
+Jun-01 16:25:03.325 [main] DEBUG nextflow.Session - Session await > all barriers passed
+Jun-01 16:25:03.329 [main] DEBUG nextflow.util.ThreadPoolManager - Thread pool 'PublishDir' shutdown completed (hard=false)
+Jun-01 16:25:03.330 [main] INFO  nextflow.Nextflow - 
+Done! Open the following report in your browser --> results/multiqc_report.html
+
+Jun-01 16:25:03.338 [main] DEBUG nextflow.trace.WorkflowStatsObserver - Workflow completed > WorkflowStats[succeededCount=8; failedCount=0; ignoredCount=0; cachedCount=0; pendingCount=0; submittedCount=0; runningCount=0; retriesCount=0; abortedCount=0; succeedDuration=40.5s; failedDuration=0ms; cachedDuration=0ms;loadCpus=0; loadMemory=0; peakRunning=6; peakCpus=6; peakMemory=0; ]
+Jun-01 16:25:03.497 [main] DEBUG nextflow.cache.CacheDB - Closing CacheDB done
+Jun-01 16:25:03.504 [main] DEBUG nextflow.util.ThreadPoolManager - Thread pool 'FileTransfer' shutdown completed (hard=false)
+Jun-01 16:25:03.505 [main] DEBUG nextflow.script.ScriptRunner - > Execution complete -- Goodbye
