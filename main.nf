@@ -48,6 +48,37 @@ process QUANTIFICATION {
     """
 }
 
+process KALLISTO_INDEX {
+
+    input:
+    path transcriptome
+
+    output:
+    path 'kallisto_index'
+
+    script:
+    """
+    kallisto index -i kallisto_index $transcriptome
+    """
+}
+
+process KALLISTO_QUANT {
+    tag "Kallisto on $sample_id"
+    publishDir params.outdir, mode:'copy'
+
+    input:
+    path kallisto_index
+    tuple val(sample_id), path(reads)
+
+    output:
+    path "$sample_id"
+
+    script:
+    """
+    kallisto quant -t $task.cpus -i $kallisto_index  -o $sample_id ${reads[0]} ${reads[1]}
+    """
+}
+
 process FASTQC {
     tag "FASTQC on $sample_id"
 
@@ -84,7 +115,9 @@ workflow {
         .set { read_pairs_ch }
 
     index_ch = INDEX(params.transcriptome_file)
+    kallisto_index_ch = KALLISTO_INDEX(params.transcriptome_file)
     quant_ch = QUANTIFICATION(index_ch, read_pairs_ch)
+    kallisto_quant_ch = KALLISTO_QUANT(kallisto_index_ch, read_pairs_ch)
     fastqc_ch = FASTQC(read_pairs_ch)
     MULTIQC(quant_ch.mix(fastqc_ch).collect())
 }
