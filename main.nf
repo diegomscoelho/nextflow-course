@@ -18,96 +18,10 @@ log.info """\
  * define the `index` process that creates a binary index
  * given the transcriptome file
  */
-process INDEX {
-    input:
-    path transcriptome
 
-    output:
-    path 'salmon_index'
-
-    script:
-    """
-    salmon index --threads $task.cpus -t $transcriptome -i salmon_index
-    """
-}
-
-process QUANTIFICATION {
-    tag "Salmon on $sample_id"
-    publishDir params.outdir, mode:'copy'
-
-    input:
-    path salmon_index
-    tuple val(sample_id), path(reads)
-
-    output:
-    path "$sample_id"
-
-    script:
-    """
-    salmon quant --threads $task.cpus --libType=U -i $salmon_index -1 ${reads[0]} -2 ${reads[1]} -o $sample_id
-    """
-}
-
-process KALLISTO_INDEX {
-
-    input:
-    path transcriptome
-
-    output:
-    path 'kallisto_index'
-
-    script:
-    """
-    kallisto index -i kallisto_index $transcriptome
-    """
-}
-
-process KALLISTO_QUANT {
-    tag "Kallisto on $sample_id"
-    publishDir params.outdir, mode:'copy'
-
-    input:
-    path kallisto_index
-    tuple val(sample_id), path(reads)
-
-    output:
-    path "$sample_id"
-
-    script:
-    """
-    kallisto quant -t $task.cpus -i $kallisto_index  -o $sample_id ${reads[0]} ${reads[1]}
-    """
-}
-
-process FASTQC {
-    tag "FASTQC on $sample_id"
-
-    input:
-    tuple val(sample_id), path(reads)
-
-    output:
-    path "fastqc_${sample_id}_logs"
-
-    script:
-    """
-    fastqc.sh "$sample_id" "$reads"
-    """
-}
-
-process MULTIQC {
-    publishDir params.outdir, mode:'copy'
-
-    input:
-    path '*'
-
-    output:
-    path 'multiqc_report.html'
-
-    script:
-    """
-    multiqc .
-    """
-}
+include { INDEX; QUANTIFICATION } from "$projectDir/nf_modules/salmon.nf"
+include { KALLISTO_INDEX; KALLISTO_QUANT } from "$projectDir/nf_modules/kallisto.nf"
+include { FASTQC; MULTIQC } from "$projectDir/nf_modules/qc.nf"
 
 workflow {
     Channel
